@@ -9,7 +9,11 @@
         <%for(let i of allListings){%>
             <a href="/listings/<%=i._id %>" class="listing-link">
             <div class="card col listing-card" >
-             <img src="<%=i.image.url%>" class="card-img-top" alt="listing_image" style="height:20rem" loading="lazy">
+<img src="<%= i.image.url.replace('/upload/', '/upload/w_800,q_auto,f_auto/') %>" 
+     class="card-img-top" 
+     alt="listing_image" 
+     style="height:20rem" 
+     loading="lazy">
              <div class="card-img-overlay"></div>
              <div class="card-body">
                <h5 class="card-title"><%=i.title%> %></h5>
