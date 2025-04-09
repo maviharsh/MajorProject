@@ -8,8 +8,11 @@
 </div>
 
     <div class="card col-6 offset-2 show-card listing-card">
-        <img src="<%=list.image.url%>" class="card-img-top show-img" loading="lazy">
-  <div class="card-body">
+<img src="<%= i.image.url.replace('/upload/', '/upload/w_800,q_auto,f_auto/') %>" 
+class="card-img-top show-img"
+     alt="listing_image" 
+     style="height:20rem" 
+     loading="lazy">  <div class="card-body">
     <p class="card-text">Owned By <i><%=list.owner.username%></i></p>
     <p class="card-text"><%=list.description%></p>
     <p class="card-text">&#x20B9; <%=list.price.toLocaleString("en-IN")%></p>
