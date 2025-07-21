@@ -6,17 +6,22 @@
         <a href="/listings/<%=i._id %>" class="listing-link">
             <div class="card col listing-card" >
                 <%
+                    // Define desired dimensions for card thumbnails
+                    // Adjust 'w_400' and 'h_300' based on your actual card size in CSS
+                    // c_fill ensures the image fills the space, cropping if aspect ratio doesn't match
+                    // q_auto and f_auto ensure optimal quality and format (like AVIF)
                     const thumbnailTransformations = 'w_400,h_300,c_fill,q_auto,f_auto';
                     const optimizedThumbnailUrl = i.image.url.replace('/upload/', `/upload/${thumbnailTransformations}/`);
                 %>
                 <img src="<%= optimizedThumbnailUrl %>"
                      class="card-img-top"
-                     alt="<%= i.title %> Image" <%-- More descriptive alt text --%>
-                     loading="lazy"> <%-- Keep lazy loading --%>
+                     alt="<%= i.title %> Image"
+                     loading="lazy">
                 <div class="card-img-overlay"></div>
                 <div class="card-body">
-                    <h5 class="card-title"><%=i.title%></h5> <%-- Removed extra %> --%>
+                    <h5 class="card-title"><%=i.title%></h5> <%-- This line was the culprit! The extra %> has been removed. --%>
                     <p>&#x20B9; <%=i.price.toLocaleString("en-IN")%>/Night</p>
+
                 </div>
             </div>
         </a>
