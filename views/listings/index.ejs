@@ -1,11 +1,11 @@
 <% layout("/layout/boilerplate.ejs") %>
 
-<h1>ALL LISTINGS</h1>
+<h1 class="mt-4 mb-3">ALL LISTINGS</h1>
 
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
     <% for (let i of allListings) { %>
         <a href="/listings/<%= i._id %>" class="listing-link text-decoration-none text-dark">
-            <div class="card col listing-card mb-3 shadow-sm border-0 rounded-4 overflow-hidden">
+            <div class="card listing-card shadow-sm border-0 overflow-hidden">
                 <%
                     const thumbnailTransformations = 'w_400,h_300,c_fill,q_auto,f_auto';
                     const optimizedThumbnailUrl = i.image.url.replace('/upload/', `/upload/${thumbnailTransformations}/`);
