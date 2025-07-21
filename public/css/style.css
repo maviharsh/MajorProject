@@ -24,10 +24,10 @@ body {
     background-color: white;
 }
 
-img{
+/* img{
     height: 100px;
     width: 100px;
-}
+} */
 .bigbox{
     display: inline;
 }
@@ -84,21 +84,31 @@ img{
 .listing-card{
     border: none !important;
     margin-bottom: 2rem;
+     min-height: 380px;      
+    border-radius: 1rem !important; 
+    overflow: hidden;   
 }
 
 .card-img-top{
-    border-radius: 1rem !important ;
+  border-radius: 1rem 1rem 0 0 !important; /* Rounded only on top corners */
     width: 100% !important;
+    height: 220px !important;   /* NEW: Taller images for better visual balance */
     object-fit: cover !important;
+    object-position: center; 
 }
 
 .card-body{
-    padding: 0 !important;
+padding: 1rem 1.2rem !important;
 }
 
 .card-text p{
     font-weight: 400;
 }
+
+.row > a {
+    padding: 0.5rem; /* NEW: Adds spacing between cards without heavy margins */
+}
+
 .add-btn,.add-againbtn{
     background-color: #fe424d !important;
     border: none !important;
