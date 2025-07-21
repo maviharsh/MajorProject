@@ -1,29 +1,24 @@
 <%layout("/layout/boilerplate.ejs")%>
 
-       <h1>ALL LISTINGS </h1>
-      <!-- <form method="GET" action="/listings/new">
-           <button>Create New Listing</button>
-       </fo
-       rm> -->
-       <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-        <%for(let i of allListings){%>
-            <a href="/listings/<%=i._id %>" class="listing-link">
+<h1>ALL LISTINGS </h1>
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <%for(let i of allListings){%>
+        <a href="/listings/<%=i._id %>" class="listing-link">
             <div class="card col listing-card" >
-<img src="<%= i.image.url.replace('/upload/', '/upload/w_800,q_auto,f_auto/') %>" 
-     class="card-img-top" 
-     alt="listing_image" 
-     style="height:20rem" 
-     loading="lazy">
-             <div class="card-img-overlay"></div>
-             <div class="card-body">
-               <h5 class="card-title"><%=i.title%> %></h5>
-               <p>&#x20B9; <%=i.price.toLocaleString("en-IN")%>/Night</p>
-               
-             </div>
-           </div>
-           </a>
-           <%}%>
-       </div>
-       
-
-    
+                <%
+                    const thumbnailTransformations = 'w_400,h_300,c_fill,q_auto,f_auto';
+                    const optimizedThumbnailUrl = i.image.url.replace('/upload/', `/upload/${thumbnailTransformations}/`);
+                %>
+                <img src="<%= optimizedThumbnailUrl %>"
+                     class="card-img-top"
+                     alt="<%= i.title %> Image" <%-- More descriptive alt text --%>
+                     loading="lazy"> <%-- Keep lazy loading --%>
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <h5 class="card-title"><%=i.title%></h5> <%-- Removed extra %> --%>
+                    <p>&#x20B9; <%=i.price.toLocaleString("en-IN")%>/Night</p>
+                </div>
+            </div>
+        </a>
+    <%}%>
+</div>
